@@ -26,4 +26,4 @@ venv
 __pycache__
 
 *.pem
-ec2_config.py
+rds_config.py
