@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
+import Timesheet from './Timesheet.js';
+import DayBox from './DayBox.js';
 // import { Button } from 'react-bootstrap';
 // import { Card } from 'react-bootstrap';
 
@@ -23,8 +25,8 @@ function App() {
         ... no changes in this part ...
 
         <p>The current time is {currentTime}.</p>
-
-        <Button variant="primary">Primary</Button>{' '}
+        <Timesheet/>
+        {/* <Button variant="primary">Primary</Button>{' '}
         <Button variant="secondary">Secondary</Button>{' '}
         <Button variant="success">Success</Button>{' '}
         <Button variant="outline-primary">Primary</Button>{' '}
@@ -39,7 +41,7 @@ function App() {
           </Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
-      </Card>
+      </Card> */}
       </header>
     </div>
   );

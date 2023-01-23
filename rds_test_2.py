@@ -62,8 +62,16 @@ cursor=connection.cursor()
 # VALUES(1778920, 3, '2003-02-01 13:30:00', '2003-02-01 17:30:00')""")
 connection.commit()
 
+# SELECT table_name
+# FROM information_schema.tables
+# WHERE table_schema = 'public'
+# ORDER BY table_name;
+
 # read from table
-cursor.execute("select * from project")
+# cursor.execute("select * from project")
+cursor.execute("""
+SELECT * from post;
+""")
 results = cursor.fetchall()
 for r in results:
     print(r)
