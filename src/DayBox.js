@@ -17,16 +17,11 @@ export default class DayBox extends Component {
     render() {
         return(
         <Card style={{ float: 'left', width: '19%', margin: '0.5%', color: 'black' }}>
-        <Card.Body>
-            <Card.Title>{this.state.day}</Card.Title>
-            <Form.Group>
-            <NumericInput/>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-        </Card.Body>
+            <Card.Body>
+                <Card.Title>{this.state.day}</Card.Title>
+                <input type="time" min="00:00" max="23:59" required></input>
+                <input type="time" min="00:00" max="23:59" required></input>
+            </Card.Body>
         </Card>
         )
     }

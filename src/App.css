@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.timesheet {
+  background-color: #EEEEEE;
+  border: 1px solid #BBBBBB;
+  border-radius: 5px;
+  width: 95%;
+  padding: 0.2%;
+  margin: 2.5%;
+}
