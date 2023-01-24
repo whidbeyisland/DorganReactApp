@@ -45,3 +45,8 @@
   padding: 0.2%;
   margin: 2.5%;
 }
+
+.small-gray {
+  color: #999999;
+  font-size: 14px;
+}

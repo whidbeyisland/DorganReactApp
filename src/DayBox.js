@@ -19,11 +19,17 @@ export default class DayBox extends Component {
         <Card style={{ float: 'left', width: '19%', margin: '0.5%', color: 'black' }}>
             <Card.Body>
                 <Card.Title>{this.state.day}</Card.Title>
-                <input type="time" min="00:00" max="23:59" required></input>
-                <input type="time" min="00:00" max="23:59" required></input>
+                <input id="startTime" type="time" min="00:00" max="23:59" onChange={handleChange} required></input>
+                <input id="endTime" type="time" min="00:00" max="23:59" onChange={handleChange} required></input>
+                <p class="small-gray">{this.testTime}</p>
             </Card.Body>
         </Card>
         )
+        // onChange={this.updateTime.bind(this)}
     }
 
+}
+
+function handleChange(event) {
+    alert(event.target.value);
 }
