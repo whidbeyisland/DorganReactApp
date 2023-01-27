@@ -31,7 +31,7 @@ export default class Timesheet extends Component {
             time_wed: 0,
             time_thu: 0,
             time_fri: 0,
-            total_time: "Total time this week: $TIME",
+            total_time: "Total time this week: 0:00",
         };
         this.updateTimeFunc = this.updateTimeFunc.bind(this);
         this.calculateTotalTime = this.calculateTotalTime.bind(this);
@@ -41,11 +41,11 @@ export default class Timesheet extends Component {
         var total = 0;
         for (let i = 0; i < times.length; i++) {
             if (times[i].includes(":")) {
-                total += 1;
+                total += parseInt(times[i].substring(0, 2)) * 60;
+                total += parseInt(times[i].substring(3, 5));
             }
         }
-        alert(total);
-        return total;
+        return Math.floor(total / 60) + ":" + ("0" + total % 60).slice(-2);
     }
 
     updateTimeFunc(e) {
@@ -61,12 +61,9 @@ export default class Timesheet extends Component {
             thuRef.state.timeDiff,
             friRef.state.timeDiff
         ];
-        alert("Current total time is: " + this.calculateTotalTime(times));
-        // alert("current time of child is:  " + monRef.state.timeDiff);
-        // alert('hello world!');
-        // let stateCopy = JSON.parse(JSON.stringify(this.state));
-        // stateCopy.total_time = "Total time this week: $ALOT";
-        // this.setState(stateCopy);
+        let stateCopy = JSON.parse(JSON.stringify(this.state));
+        stateCopy.total_time = "Total time this week: " + this.calculateTotalTime(times);
+        this.setState(stateCopy);
     }
 
     render() {
