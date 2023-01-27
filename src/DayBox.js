@@ -16,9 +16,16 @@ export default class DayBox extends Component {
             endTime: 0,
             timeDiff: "0:00",
         };
+
         this.startTimeChanged = this.startTimeChanged.bind(this);
         this.endTimeChanged = this.endTimeChanged.bind(this);
     }
+
+    changeDay = (new_day) => {
+        this.setState({
+            day: new_day
+        });
+    };
 
     startTimeChanged(e) {
         this.state.startTime = e.target.value;
