@@ -25,6 +25,8 @@ export default class DayBox extends Component {
         let stateCopy = JSON.parse(JSON.stringify(this.state));
         stateCopy.timeDiff = timeDifference(this.state.startTime, this.state.endTime);
         this.setState(stateCopy);
+
+        this.props.updateTimeFunc();
     }
 
     endTimeChanged(e) {
@@ -33,11 +35,13 @@ export default class DayBox extends Component {
         let stateCopy = JSON.parse(JSON.stringify(this.state));
         stateCopy.timeDiff = timeDifference(this.state.startTime, this.state.endTime);
         this.setState(stateCopy);
+
+        this.props.updateTimeFunc();
     }
     
     render() {
         return(
-        <Card style={{ float: 'left', width: '19%', margin: '0.5%', color: 'black' }}>
+        <Card style={{ float: 'left', width: '19%', margin: '0.5%', color: 'black', height: '150px' }}>
             <Card.Body>
                 <Card.Title>{this.state.day}</Card.Title>
                 <input id="startTime" type="time" min="00:00" max="23:59" onChange={this.startTimeChanged} required></input>
