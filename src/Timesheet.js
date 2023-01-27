@@ -3,6 +3,7 @@ import "./App.css";
 import Button from 'react-bootstrap/Button';
 import DayBox from './DayBox';
 import Form from 'react-bootstrap/Form';
+import { ArrowLeft, ArrowRight } from 'react-bootstrap-icons';
 
 export default class Timesheet extends Component {
 
@@ -81,11 +82,13 @@ export default class Timesheet extends Component {
             <div className="timesheet">
               <Form onClick={this.updateTimeFunc}>
                   <p className="small-gray">{this.state.total_time}</p>
+                  <ArrowLeft style={{ float: 'left', width: '4%', margin: '0.5%', color: '#888888', height: '170px' }} />
                   <DayBox id="daybox-mon" day={this.state.day_mon} dayOfWeek={"Mon"} updateTimeFunc={this.updateTimeFunc} ref={this.monRef}/>
                   <DayBox id="daybox-tue" day={this.state.day_tue} dayOfWeek={"Tue"} updateTimeFunc={this.updateTimeFunc} ref={this.tueRef}/>
                   <DayBox id="daybox-wed" day={this.state.day_wed} dayOfWeek={"Wed"} updateTimeFunc={this.updateTimeFunc} ref={this.wedRef}/>
                   <DayBox id="daybox-thu" day={this.state.day_thu} dayOfWeek={"Thu"} updateTimeFunc={this.updateTimeFunc} ref={this.thuRef}/>
                   <DayBox id="daybox-fri" day={this.state.day_fri} dayOfWeek={"Fri"} updateTimeFunc={this.updateTimeFunc} ref={this.friRef}/>
+                  <ArrowRight style={{ float: 'right', width: '4%', margin: '0.5%', color: '#888888', height: '170px' }} />
                   <Button variant="success" style={{width: '10%', float: 'left'}}>Submit</Button>{' '}
               </Form>
             </div>

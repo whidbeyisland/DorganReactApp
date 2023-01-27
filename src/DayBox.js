@@ -42,7 +42,7 @@ export default class DayBox extends Component {
     
     render() {
         return(
-        <Card style={{ float: 'left', width: '19%', margin: '0.5%', color: 'black', height: '170px' }}>
+        <Card style={{ float: 'left', width: '17%', margin: '0.5%', color: 'black', height: '170px' }}>
             <Card.Body>
                 <p className="small-gray">{this.state.dayOfWeek}</p>
                 <p className="large-gray">{this.state.day}</p>
