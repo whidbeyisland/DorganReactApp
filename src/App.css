@@ -37,6 +37,28 @@
   }
 }
 
+.large-gray {
+  color: #333333;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 5px;
+}
+
+.small-gray {
+  color: #666666;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 3px;
+}
+
+.time-input {
+  color: #666666;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 3px;
+}
+
 .timesheet {
   background-color: #EEEEEE;
   border: 1px solid #BBBBBB;
@@ -44,14 +66,4 @@
   width: 95%;
   padding: 0.2%;
   margin: 2.5%;
-}
-
-.small-gray {
-  color: #999999;
-  font-size: 14px;
-}
-
-.total-time {
-  color: #999999;
-  font-size: 14px;
 }

@@ -16,16 +16,26 @@ export default class Timesheet extends Component {
         this.friRef = React.createRef();
 
         // getting days of week
-        var curr = new Date; // get current date
-        var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+        var first = new Date(); // get current date
+        first.setDate(first.getDate() - first.getDay()); // First day is the day of the month - the day of the week
+        var first_1 = new Date();
+        first_1.setDate(first.getDate() + 1);
+        var first_2 = new Date();
+        first_2.setDate(first.getDate() + 2);
+        var first_3 = new Date();
+        first_3.setDate(first.getDate() + 3);
+        var first_4 = new Date();
+        first_4.setDate(first.getDate() + 4);
+        var first_5 = new Date();
+        first_5.setDate(first.getDate() + 5);
 
         this.state = {
             apiResponse: "",
-            day_mon: (first + 1),
-            day_tue: (first + 2),
-            day_wed: (first + 3),
-            day_thu: (first + 4),
-            day_fri: (first + 5),
+            day_mon: (first_1.getMonth() + 1) + "/" + (first_1.getDate()),
+            day_tue: (first_2.getMonth() + 1) + "/" + (first_2.getDate()),
+            day_wed: (first_3.getMonth() + 1) + "/" + (first_3.getDate()),
+            day_thu: (first_4.getMonth() + 1) + "/" + (first_4.getDate()),
+            day_fri: (first_5.getMonth() + 1) + "/" + (first_5.getDate()),
             time_mon: 0,
             time_tue: 0,
             time_wed: 0,
@@ -69,13 +79,13 @@ export default class Timesheet extends Component {
     render() {
         return(
             <div className="timesheet">
-              <Form>
-                  <p className="total-time">{this.state.total_time}</p>
-                  <DayBox id="daybox-mon" day={this.state.day_mon} updateTimeFunc={this.updateTimeFunc} ref={this.monRef}/>
-                  <DayBox id="daybox-tue" day={this.state.day_tue} updateTimeFunc={this.updateTimeFunc} ref={this.tueRef}/>
-                  <DayBox id="daybox-wed" day={this.state.day_wed} updateTimeFunc={this.updateTimeFunc} ref={this.wedRef}/>
-                  <DayBox id="daybox-thu" day={this.state.day_thu} updateTimeFunc={this.updateTimeFunc} ref={this.thuRef}/>
-                  <DayBox id="daybox-fri" day={this.state.day_fri} updateTimeFunc={this.updateTimeFunc} ref={this.friRef}/>
+              <Form onClick={this.updateTimeFunc}>
+                  <p className="small-gray">{this.state.total_time}</p>
+                  <DayBox id="daybox-mon" day={this.state.day_mon} dayOfWeek={"Mon"} updateTimeFunc={this.updateTimeFunc} ref={this.monRef}/>
+                  <DayBox id="daybox-tue" day={this.state.day_tue} dayOfWeek={"Tue"} updateTimeFunc={this.updateTimeFunc} ref={this.tueRef}/>
+                  <DayBox id="daybox-wed" day={this.state.day_wed} dayOfWeek={"Wed"} updateTimeFunc={this.updateTimeFunc} ref={this.wedRef}/>
+                  <DayBox id="daybox-thu" day={this.state.day_thu} dayOfWeek={"Thu"} updateTimeFunc={this.updateTimeFunc} ref={this.thuRef}/>
+                  <DayBox id="daybox-fri" day={this.state.day_fri} dayOfWeek={"Fri"} updateTimeFunc={this.updateTimeFunc} ref={this.friRef}/>
                   <Button variant="success" style={{width: '10%', float: 'left'}}>Submit</Button>{' '}
               </Form>
             </div>
