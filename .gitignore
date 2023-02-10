@@ -29,3 +29,5 @@ __pycache__
 rds_config.py
 
 test.js
+rds_test.py
+rds_test_2.py
