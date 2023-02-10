@@ -1,6 +1,11 @@
 # Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - pip3 install pytest
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
@@ -10,6 +15,7 @@ phases:
       - echo Build started on `date`
       - echo Compiling the dist folder
       - npm run-script build
+      - python -m pytest --junitxml=test_reports/test_report
   post_build:
     commands:
       - echo Build completed on `date`
@@ -20,3 +26,9 @@ artifacts:
     - api/**/*
     - public*
     - src/*
+reports:
+  pytest_reports:
+    files:
+      - test_report
+    base-directory: test_reports
+    file-format: JUNITXML
